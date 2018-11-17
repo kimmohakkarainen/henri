@@ -30,12 +30,14 @@ class TyosopimusView extends React.Component {
   }
 
   handleHloTunnus(e) {
+    console.log("handleHloTunnus");
+    console.log(e.target.value);
     if (
       e.target.value.match(
-        /[0-9][0-9][0-9][0-9][0-9][0-9][A\+\-][0-9][0-9][0-9][0-9]/g
+        /[0-3][0-9][0-1][0-9][0-9][0-9][A\+\-][0-9][0-9][0-9][0-9ABCDEFHJKLMNPRSTUVWXY]/g
       )
     ) {
-      this.setState({ hlotunnusValidation: "ok" });
+      this.setState({ hlotunnusValidation: "success" });
     } else {
       this.setState({ hlotunnusValidation: "error" });
     }
