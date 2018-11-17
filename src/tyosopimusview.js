@@ -34,7 +34,7 @@ class TyosopimusView extends React.Component {
     console.log(e.target.value);
     if (
       e.target.value.match(
-        /[0-3][0-9][0-1][0-9][0-9][0-9][A\+\-][0-9][0-9][0-9][0-9ABCDEFHJKLMNPRSTUVWXY]/g
+        /(30|31|0[1-9]|[1-2][0-9])(03|04|05|06|07|08|09|10|[0-1][1-2])[0-9][0-9][A\+\-][0-9][0-9][0-9][0-9ABCDEFHJKLMNPRSTUVWXY]/y
       )
     ) {
       this.setState({ hlotunnusValidation: "success" });
