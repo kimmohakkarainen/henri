@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "dependencies": {
     "react": "16.4.2",
-    "react-bootstrap": "latest",
+    "react-bootstrap": "0.32.4",
     "react-dom": "16.4.2",
     "react-scripts": "1.1.4"
   },

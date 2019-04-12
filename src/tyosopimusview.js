@@ -27,9 +27,24 @@ class TyosopimusView extends React.Component {
     };
 
     this.handleHloTunnus = this.handleHloTunnus.bind(this);
+    this.handleHloTunnusORIGINAL = this.handleHloTunnusORIGINAL.bind(this);
   }
 
   handleHloTunnus(e) {
+    console.log("handleHloTunnus");
+    console.log(e.target.value);
+    if (
+      e.target.value.match(
+        /((01|02|03|04|05|06|07|08|09|([1-2][0-9]))02)|((31|30|01|02|03|04|05|06|07|08|09|[1-2][0-9])(01|03|05|07|08|10|12))/y
+      )
+    ) {
+      this.setState({ hlotunnusValidation: "success" });
+    } else {
+      this.setState({ hlotunnusValidation: "error" });
+    }
+  }
+
+  handleHloTunnusORIGINAL(e) {
     console.log("handleHloTunnus");
     console.log(e.target.value);
     if (
@@ -49,7 +64,7 @@ class TyosopimusView extends React.Component {
         <h1>työsopimus</h1>
         <form>
           <ListGroup>
-            <ListGroupItem header="työnantaja">
+            <ListGroupItem header="työnantaja" href="ta">
               <FormControl type="text" placeholder="Työnantajan nimi" />
             </ListGroupItem>
             <ListGroupItem header="työnantajan koti- tai liikepaikka" href="#">
@@ -62,7 +77,10 @@ class TyosopimusView extends React.Component {
                 validationState={this.state.hlotunnusValidation}
               >
                 <ControlLabel>Henkilötunnus</ControlLabel>
-                <FormControl type="text" onChange={this.handleHloTunnus} />
+                <FormControl
+                  type="text"
+                  onChange={this.handleHloTunnusORIGINAL}
+                />
               </FormGroup>
             </ListGroupItem>
             <FormGroup>
